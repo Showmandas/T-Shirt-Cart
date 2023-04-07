@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
+  
     return (
-        <div className="navbar bg-ghost shadow-lg px-10">
+        <div className="navbar bg-ghost shadow-lg px-10 mb-16">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,11 +23,11 @@ const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li className='px-3'><Link to={"/"}>Home</Link></li>
-      <li className='px-3'>
+      <li className='px-4'><Link to={"/"}>Home</Link></li>
+      <li className='px-4'>
         <Link to={"/about"}>About</Link>
       </li>
-      <li className='px-3'><Link to={"/services"}>Services</Link></li>
+      <li  className='px-4'><Link to={"/services"}>Services</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
