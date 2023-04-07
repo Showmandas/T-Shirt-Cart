@@ -6,7 +6,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Home from './components/Home/Home'
 import Layout from './components/Layout/Layout'
 import About from './components/About/About'
-import Services from './components/Service/Services'
+import Services from './components/Service/Service/Services'
 
 const router = createBrowserRouter([
   {

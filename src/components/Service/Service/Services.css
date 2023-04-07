@@ -1,0 +1,16 @@
+.tshirt-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+
+}
+
+.tshirtCard-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.order{
+    background-color: bisque;
+}
