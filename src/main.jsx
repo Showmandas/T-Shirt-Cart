@@ -7,11 +7,15 @@ import Home from './components/Home/Home'
 import Layout from './components/Layout/Layout'
 import About from './components/About/About'
 import Services from './components/Service/Service/Services'
+import ErrorPage from './components/ErrorPage/ErrorPage'
+import Details from './components/Service/TShirtDetails/Details'
+import Loading from './components/Loading/LoadingSpinner'
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<Layout/>,
+    errorElement:<ErrorPage/>,
     children:[
       {
         path:'/',
@@ -25,7 +29,16 @@ const router = createBrowserRouter([
         path:'services',
         element:<Services/>,
         loader:()=>fetch('T-shirtData.json')
-      }
+      },
+      {
+        path:'details/:detailId',
+        element:<Details/>,
+        loader:({params})=>fetch(`T-shirtData.json/${params.id}`)
+      },
+      {
+        path: "loader",
+        element: <Loading />,
+      },
     ]
   }
 ])

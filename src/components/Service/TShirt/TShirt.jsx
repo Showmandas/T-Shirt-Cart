@@ -1,5 +1,6 @@
 import React from 'react';
 import './TShirt.css'
+import { Link } from 'react-router-dom';
 
 const TShirt = ({tshirt,handleCart}) => {
   console.log(tshirt);
@@ -12,6 +13,7 @@ const TShirt = ({tshirt,handleCart}) => {
     <p>Price : {price}</p>
     <div className="card-actions justify-center">
       <button onClick={()=>handleCart(tshirt)} className="btn btn-accent  w-full">Buy Now</button>
+      <Link to={`../details/${tshirt._id}`}><button className="btn btn-secondary  w-full">Details</button></Link>
     </div>
   </div>
 </div>

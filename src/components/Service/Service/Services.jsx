@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData,useNavigation } from 'react-router-dom';
 import TShirt from '../TShirt/TShirt';
 import './Services.css'
 import Cart from '../Cart/Cart';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingSpinner from '../../Loading/LoadingSpinner';
 
 
 
@@ -12,7 +13,11 @@ const Services = () => {
     const[cart,setCart]=useState([]);
     const tShirtsData=useLoaderData();
     // console.log(tShirtsData);
-
+  // load spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner/>;
+  }
     // handle buy now button 
     const handleCart=tshirt=>{
         // console.log(tshirt);
@@ -41,8 +46,8 @@ const Services = () => {
             tShirtsData.map(tShirt=><TShirt key={tShirt._id} tshirt={tShirt} handleCart={handleCart}></TShirt>)
         }
         </div>
-        <div className='order  bg-error'>
-<h2>Order</h2>
+        <div className='order  bg-error p-4 text-center'>
+<h2 className='bg-base-100 p-2'>Order Summary</h2>
 <Cart cart={cart}  handleRemoveButton={handleRemoveButton}/>
         </div>
         </div>
